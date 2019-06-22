@@ -1,0 +1,10 @@
+{
+    "meta": {
+        "name": "Bright (Wii-ish) layout",
+        "author": "XorTroll"
+    },
+    "generic": {
+        "background": "res/bg.jpg",
+        "bgm": "res/menu.mp3"
+    }
+}

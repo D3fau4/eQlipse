@@ -1,0 +1,9 @@
+[submodule "eQlipseMenu"]
+	path = eQlipseMenu
+	url = https://github.com/eqlipse-nx/eQlipseMenu
+[submodule "HomebrewTarget"]
+	path = HomebrewTarget
+	url = https://github.com/eqlipse-nx/HomebrewTarget
+[submodule "eQlipseTarget"]
+	path = eQlipseTarget
+	url = https://github.com/eqlipse-nx/eQlipseTarget
