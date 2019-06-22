@@ -1,11 +1,5 @@
 
-all: atmosphere reinx
-
 define gen_cfw_output
-	$(MAKE) -C eQlipseTarget/
-	$(MAKE) -C HomebrewTarget/
-	$(MAKE) -C eQlipseMenu/
-	@rm -rf sd-ready
 	@mkdir -p sd-ready/$(1)/titles/010000000000CAFE
 	@touch sd-ready/$(1)/titles/010000000000CAFE/boot2.flag
 	@cp -f eQlipseTarget/eQlipseTarget.nsp sd-ready/$(1)/titles/010000000000CAFE/exefs.nsp
@@ -20,8 +14,24 @@ define gen_cfw_output
 	@cp -rf BrightTheme sd-ready/eqlipse/themes/BrightTheme
 endef
 
-atmosphere:
+all:
+	$(MAKE) -C eQlipseTarget/
+	$(MAKE) -C HomebrewTarget/
+	$(MAKE) -C eQlipseMenu/
+	@rm -rf sd-ready
+	$(call gen_cfw_output,atmosphere)
+	$(call gen_cfw_output,ReiNX)
+
+atmo:
+	$(MAKE) -C eQlipseTarget/
+	$(MAKE) -C HomebrewTarget/
+	$(MAKE) -C eQlipseMenu/
+	@rm -rf sd-ready
 	$(call gen_cfw_output,atmosphere)
 
 reinx:
+	$(MAKE) -C eQlipseTarget/
+	$(MAKE) -C HomebrewTarget/
+	$(MAKE) -C eQlipseMenu/
+	@rm -rf sd-ready
 	$(call gen_cfw_output,ReiNX)
