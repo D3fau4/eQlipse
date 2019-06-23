@@ -1,17 +1,18 @@
+sdready := sd-ready/eqlipse
 
 define gen_cfw_output
 	@mkdir -p sd-ready/$(1)/titles/010000000000CAFE
 	@touch sd-ready/$(1)/titles/010000000000CAFE/boot2.flag
 	@cp -f eQlipseTarget/eQlipseTarget.nsp sd-ready/$(1)/titles/010000000000CAFE/exefs.nsp
-	@mkdir -p sd-ready/eqlipse/bin/{Menu,LibraryAppletHbTarget,SystemApplicationHbTarget}
-	@cp -f boot.json sd-ready/eqlipse/boot.json
-	@cp -f eQlipseMenu/eQlipseMenu.nsp sd-ready/eqlipse/bin/Menu/exefs.nsp
-	@cp -f eQlipseMenu/eQlipseMenu.romfs sd-ready/eqlipse/bin/Menu/romfs.bin
-	@touch sd-ready/eqlipse/bin/Menu/fsmitm.flag
-	@cp -f HomebrewTarget/LibraryAppletHbTarget/LibraryAppletHbTarget.nsp sd-ready/eqlipse/bin/LibraryAppletHbTarget/exefs.nsp
-	@cp -f HomebrewTarget/SystemApplicationHbTarget/SystemApplicationHbTarget.nsp sd-ready/eqlipse/bin/SystemApplicationHbTarget/exefs.nsp
-	@mkdir -p sd-ready/eqlipse/themes
-	@cp -rf BrightTheme sd-ready/eqlipse/themes/BrightTheme
+	@mkdir -p $(sdready)/bin/Menu $(sdready)/bin/LibraryAppletHbTarget $(sdready)/bin/SystemApplicationHbTarget
+	@cp -f boot.json $(sdready)/boot.json
+	@cp -f eQlipseMenu/eQlipseMenu.nsp $(sdready)/bin/Menu/exefs.nsp
+	@cp -f eQlipseMenu/eQlipseMenu.romfs $(sdready)/bin/Menu/romfs.bin
+	@touch $(sdready)/bin/Menu/fsmitm.flag
+	@cp -f HomebrewTarget/LibraryAppletHbTarget/LibraryAppletHbTarget.nsp $(sdready)/bin/LibraryAppletHbTarget/exefs.nsp
+	@cp -f HomebrewTarget/SystemApplicationHbTarget/SystemApplicationHbTarget.nsp $(sdready)/bin/SystemApplicationHbTarget/exefs.nsp
+	@mkdir -p $(sdready)/themes
+	@cp -rf BrightTheme $(sdready)/themes/BrightTheme
 endef
 
 all:
